@@ -104,8 +104,7 @@ Následují ukázky JSON objektů popisují příklady detailu akce a aktivity. 
         },
         "aktivní_česko": false,
         "bezbariériový_přístup": true,
-        "ekologicky_šetrné": false,        
-        "smetana_200": false,
+        "ekologicky_šetrné": false,
         "vhodné_pro_děti": false,
         "vhodné_pro_dospělé": false,
         "vhodné_pro_firmení_akce": false,
@@ -119,8 +118,8 @@ Následují ukázky JSON objektů popisují příklady detailu akce a aktivity. 
                 "cs": "Areál Žireč, Domov sv. Josefa"
             },
             "geometrie": {
-                "typ": "Point",
-                "coordinates": [
+                "typ": "Lokalita",
+                "souřadnice": [
                     50.413444519042969,
                     15.853754043579102
                 ]
@@ -264,14 +263,13 @@ Následují ukázky JSON objektů popisují příklady detailu akce a aktivity. 
 | **popis** | Krátká anotace (perex) – prostý text **(povinné)** |
 | dlouhý_popis | HTML text pokračující za krátkým popisem (volitelné) |
 | aktivní_česko | Aktivní Česko (true / false) (volitelné) |
-| **bezbariériový_přístup** | Bezbariérový přístup (true / false) **(povinné)** |
+| bezbariériový_přístup | Bezbariérový přístup (true / false) (volitelné) |
 | ekologicky_šetrné | Ekologicky šetrné (true / false) (volitelné) |
-| smetana_200 | Projekt Smetana200 (true / false) (volitelné) |
-| **vhodné_pro_děti** | Vhodné pro děti (true / false) **(povinné)** |
+| vhodné_pro_děti | Vhodné pro děti (true / false) (volitelné) |
 | vhodné_pro_dospělé | Vhodné pro dospělé (true / false) (volitelné) |
 | vhodné_pro_firmení_akce | Vhodné pro firemní akce (true / false) (volitelné) |
-| **vhodné_pro_zvířata** | Vhodné pro zvířata (true / false) **(povinné)** |
-| **za_každého_počasí** | Za každého počasí (true / false) **(povinné)** |
+| vhodné_pro_zvířata | Vhodné pro zvířata (true / false) (volitelné) |
+| za_každého_počasí | Za každého počasí (true / false) (volitelné) |
 | časová_náročnost | Počet hodin potřebných k návštěvě místa (volitelné) |
 | registrace | URL adresa registrace na externím webu (volitelné) |
 | **pořadatel** | Adresa, a kontakt na pořadatele **(povinné)** |
@@ -361,10 +359,10 @@ Následují ukázky JSON objektů popisují příklady detailu akce a aktivity. 
                 "cs": "Prague Car Festival s.r.o."
             },
             "geometrie": {
-                "typ": "Point",
-                "coordinates": [
-                    50.12938386099312,
-                    14.551111294871998
+                "typ": "Lokalita",
+                "souřadnice": [
+                    50.413444519042969,
+                    15.853754043579102
                 ]
             },
             "adresa": {
@@ -397,10 +395,10 @@ Následují ukázky JSON objektů popisují příklady detailu akce a aktivity. 
                     "cs": "PVA EXPO PRAHA Letňany"
                 },
                 "geometrie": {
-                    "typ": "Point",
-                    "coordinates": [
-                        50.129423083832535,
-                        14.514344635522487
+                    "typ": "Lokalita",
+                    "souřadnice": [
+                        50.413444519042969,
+                        15.853754043579102
                     ]
                 },
                 "adresa": {
@@ -478,14 +476,14 @@ Následují ukázky JSON objektů popisují příklady detailu akce a aktivity. 
 | **popis** | Krátká anotace (perex) – prostý text **(povinné)** |
 | dlouhý_popis | HTML text pokračující za krátkým popisem (volitelné) |
 | aktivní_česko | Aktivní Česko (true / false) (volitelné) |
-| **bezbariériový_přístup** | Bezbariérový přístup (true / false) **(povinné)** |
+| bezbariériový_přístup | Bezbariérový přístup (true / false) (volitelné) |
 | ekologicky_šetrné | Ekologicky šetrné (true / false) (volitelné) |
 | smetana_200 | Projekt Smetana200 (true / false) (volitelné) |
-| **vhodné_pro_děti** | Vhodné pro děti (true / false) **(povinné)** |
+| vhodné_pro_děti | Vhodné pro děti (true / false) (volitelné) |
 | vhodné_pro_dospělé | Vhodné pro dospělé (true / false) (volitelné) |
 | vhodné_pro_firmení_akce | Vhodné pro firemní akce (true / false) (volitelné) |
-| **vhodné_pro_zvířata** | Vhodné pro zvířata (true / false) **(povinné)** |
-| **za_každého_počasí** | Za každého počasí (true / false) **(povinné)** |
+| vhodné_pro_zvířata | Vhodné pro zvířata (true / false) (volitelné) |
+| za_každého_počasí | Za každého počasí (true / false) (volitelné) |
 | časová_náročnost | Počet hodin potřebných k návštěvě místa (volitelné) |
 | registrace | URL adresa registrace na externím webu (volitelné) |
 | **pořadatel** | Adresa, a kontakt na pořadatele **(povinné)** |
