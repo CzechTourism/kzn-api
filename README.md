@@ -137,8 +137,7 @@ Plnohodnotný objekt (v případně plného přístupu):
     },
     "aktivní_česko": false,
     "bezbariériový_přístup": true,
-    "ekologicky_šetrné": false,        
-    "smetana_200": false,
+    "ekologicky_šetrné": false,
     "vhodné_pro_děti": true,
     "vhodné_pro_dospělé": false,
     "vhodné_pro_firmení_akce": false,
@@ -324,7 +323,6 @@ Plnohodnotný objekt (v případně plného přístupu):
 | aktivní_česko | Aktivní Česko (true / false) |
 | bezbariériový_přístup | Bezbariérový přístup (true / false) |
 | ekologicky_šetrné | Ekologicky šetrné (true / false) |
-| smetana_200 | Projekt Smetana200 (true / false) |
 | vhodné_pro_děti | Vhodné pro děti (true / false) |
 | vhodné_pro_dospělé | Vhodné pro dospělé (true / false) |
 | vhodné_pro_firmení_akce | Vhodné pro firemní akce (true / false) |
