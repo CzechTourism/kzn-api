@@ -4,9 +4,9 @@ Tento dokument popisuje, jak jednoduše sdílet (importovat) vaše články na p
 
 Portál Kudy z nudy podporuje import pro tyto typy obsahu: akce a aktivity. Hlavním rozdílem typů je doba trvání. Akce mají omezenou dobu trvání (v určitý okamžik začínají a v určitý končí). Aktivity jsou časově neomezené – jedná se o tzv. Turistické cíle. Z pohledu dat jsou si typy velmi podobné. Rozdílem je pouze existence doby trvání u akcí a jiná kategorizace u typu akce a jiná u typu aktivity. Je tedy potřeba rozdělit si obsah na akce a aktivity. Někteří poskytovatelé poskytují pouze akce, někteří pouze aktivity, někteří obojí současně. 
 
-Provozovatelem portálu [Kudy z nudy](https://www.kudyznudy.cz) a poskytovatelem API je agentura [CzechTourism](https://www.czechtourism.cz/). Funkce importu je přístupná pouze pro smluvní partnery CzechTourism. Pro přístup je nutné mít účet na portálu Kudy z nudy a k tomuto účtu mít přidělena patřičná oprávnění. Tato oprávnění zajistí provozovatel portálu. Více informací naleznete na stránce: Kudy z nudy API](https://www.kudyznudy.cz/faq-casto-kladene-otazky/api). 
+Provozovatelem portálu [Kudy z nudy](https://www.kudyznudy.cz) a poskytovatelem API je agentura [CzechTourism](https://www.czechtourism.cz/). Funkce importu je přístupná pouze pro smluvní partnery CzechTourism. Pro přístup je nutné mít účet na portálu Kudy z nudy a k tomuto účtu mít přidělena patřičná oprávnění. Tato oprávnění zajistí provozovatel portálu. Více informací naleznete na stránce: [Kudy z nudy API](https://www.kudyznudy.cz/faq-casto-kladene-otazky/api). 
 
-Provozovatel portálu Kudy z nudy bude potřebovat znát k registraci vašeho datového zdroje: URL adresu zdroje, na které se budou vaše data nacházet. Například: https://www.domena.cz/feed. Je tedy potřeba implementovat (poskytnout) službu (API), která bude následně registrována na portále Kudy z nudy a pomocí níž se budou data od vás stahovat. Služba musí vracet data v podporovaném formátu. Jedná se o jednoduché pole JSON objektů (záznamů). Modely objektů byly navrženy podle vzoru [Otevřených dat](https://opendata.gov.cz), respektive podle [Otevřených formálních norem](https://data.gov.cz/ofn/).
+Provozovatel portálu Kudy z nudy bude potřebovat znát k registraci vašeho datového zdroje: URL adresu zdroje, na které se budou vaše data nacházet. Například: https://www.domena.cz/data. Je tedy potřeba implementovat (poskytnout) službu (API), která bude následně registrována na portále Kudy z nudy a pomocí níž se budou data od vás stahovat. Služba musí vracet data v podporovaném formátu. Jedná se o jednoduché pole JSON objektů (záznamů). Modely objektů byly navrženy podle vzoru [Otevřených dat](https://opendata.gov.cz), respektive podle [Otevřených formálních norem](https://data.gov.cz/ofn/).
 
 ## Ukázka výstupu služby poskytující data pro portál Kudy z nudy
 
@@ -61,12 +61,11 @@ Provozovatel portálu Kudy z nudy bude potřebovat znát k registraci vašeho da
 
 Kudy z nudy pravidelně poptává váš datový zdroj a získává tak informace o změnách, které zpracovává. Pro lepší nastavení je dobré znát, jak často dochází k publikaci změn datového zdroje – může se pak na straně Kudy z nudy nastavit, jak často se mají nová data poptávat. 
 
-Doporučujeme také implementovat filtrování datumem (parametr date). Bude pak možné poptat pouze záznamy změněné od určitého datumu a času (od data poslední aktualizace). Nebudou se tedy muset stahovat již zpracované záznamy. https://www.domena.cz/feed?date=2022-10-02 (vrátí pouze záznamy změněné nebo vytvořené od 2.10.2022).
+Doporučujeme také implementovat filtrování datumem (parametr datum). Bude pak možné poptat pouze záznamy změněné od určitého datumu a času (od data poslední aktualizace). Nebudou se tedy muset stahovat již zpracované záznamy. https://www.domena.cz/data?datum=2023-10-02 (vrátí pouze záznamy změněné nebo vytvořené od 2.10.2023).
 
-Druhou službu, kterou je potřeba implementovat, je služba pro detail záznamu. Adresa této služby je předávána v hodnotě iri u každého záznamu a je zároveň unikátním identifikátorem záznamu. Služba detailu záznamu musí vracet data opět v podporovaném formátu. Pokud se jedná o detail aktivity (turistického cíle), pak musí vracet JSON objekt validní podle šablony turistického cíle: https://www.kudyznudy.cz/kzn/context/v1/turisticky-cil.jsonld, pokud se jedná o akci (událost) tak musí vracet data validní podle šablony události: https://www.kudyznudy.cz/kzn/context/v1/udalost.jsonld.
+Druhou službu, kterou je potřeba implementovat, je služba pro detail záznamu. Adresa této služby je předávána v hodnotě iri u každého záznamu a je zároveň unikátním identifikátorem záznamu. Služba detailu záznamu musí vracet data opět v podporovaném formátu. Pokud se jedná o detail aktivity (turistického cíle), pak musí vracet JSON objekt validní podle šablony turistického cíle: https://www.kudyznudy.cz/kzn/context/v1/turisticky-cil.jsonld, pokud se jedná o akci (událost), tak musí vracet data validní podle šablony události: https://www.kudyznudy.cz/kzn/context/v1/udalost.jsonld.
 
-Následují ukázky JSON objektů popisují příklady detailu akce a aktivity. Samotné články existující na portále Kudy z nudy lze v tomto formátu samozřejmě také exportovat – více informací naleznete na stránce o Kudy z nudy API: https://github.com/CzechTourism/kzn-api.
-
+Následují ukázky JSON objektů popisují příklady detailu akce a aktivity:
 
 ### Ukázka výstupu detailu aktivity (turistického cíle)
 
@@ -492,4 +491,4 @@ Následují ukázky JSON objektů popisují příklady detailu akce a aktivity. 
 | otevírací_doba | Definice otevírací doby v jednotlivých dnech (volitelné) |
 | **příloha** | Pole obrázků a jejich metadata **(povinné)** |
 
-Každý JSON objekt, který vaše API poskytuje musí být validní oproti danému JSON schématu tak, aby bylo možné ho načíst na straně Kudy z nudy. Pro validaci můžete použít například [JSON Schema Validator](https://www.jsonschemavalidator.net/).
+Každý JSON objekt, který vaše API poskytuje musí být validní oproti danému JSON schématu tak, aby jej bylo možné načíst na straně Kudy z nudy. Pro validaci můžete použít například [JSON Schema Validator](https://www.jsonschemavalidator.net/).
