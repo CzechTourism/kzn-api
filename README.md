@@ -23,4 +23,5 @@ Jednotlivé služby popsané níže vrací data ve formátu [JSON](https://www.j
 ## Podporované metody
 
 [Import dat do Kudy z nudy](/Import.md)
+
 [Export dat z Kudy z nudy](/Export.md)
