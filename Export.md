@@ -1,8 +1,6 @@
 # Export dat z Kudy z nudy
 
-Tento dokument popisuje v jakém formátu je možné data jednoduše exportovat z portálu Kudy z nudy.
-
-Portál Kudy z nudy podporuje export pro tyto typy obsahu: akce a aktivity. Hlavním rozdílem typů je doba trvání. Akce mají omezenou dobu trvání (v určitý okamžik začínají a v určitý končí). Aktivity jsou časově neomezené – jedná se o tzv. Turistické cíle. Z pohledu dat jsou si typy velmi podobné. Rozdílem je pouze existence doby trvání u akcí a jiná kategorizace u typu akce a jiná u typu aktivity.
+Tento dokument popisuje v jakém formátu je možné data jednoduše exportovat z portálu Kudy z nudy. Portál Kudy z nudy podporuje export pro tyto typy obsahu: akce a aktivity. Hlavním rozdílem typů je doba trvání. Akce mají omezenou dobu trvání (v určitý okamžik začínají a v určitý končí). Aktivity jsou časově neomezené – jedná se o tzv. Turistické cíle. Z pohledu dat jsou si typy velmi podobné. Rozdílem je pouze existence doby trvání u akcí a jiná kategorizace u typu akce a jiná u typu aktivity.
 
 ## Přístup k API
 
