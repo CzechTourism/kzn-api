@@ -47,7 +47,6 @@ Provozovatel portálu Kudy z nudy bude potřebovat znát k registraci vašeho da
         }
     ]
 
-
 | **Hodnota** | **Popis hodnoty** |
 | --- | --- |
 | **@context** | Popis formátu dat – šablona jsonld (JSON schema: [https://www.kudyznudy.cz/kzn/context/v1/dokument.jsonld](https://www.kudyznudy.cz/kzn/context/v1/dokument.jsonld)). Tato šablona slouží k validaci správnosti vašeho datového zdroje. |
