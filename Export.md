@@ -97,6 +97,7 @@ Metoda slouží pro získání detailu publikované aktivity:
     }'
 
 Výstupem je JSON objekt:
+
     {
     "@context": "https://www.kudyznudy.cz/kzn/context/v1/turisticky-cil-public.jsonld",
     "typ": "Turistický cíl",
@@ -288,6 +289,7 @@ Služba pro získání detailu publikované akce:
     }'
 
 Výstupem služby detailu akce je JSON objekt:
+
     {
         "@context": "https://www.kudyznudy.cz/kzn/context/v1/udalost-public.jsonld",
         "typ": "Událost",
