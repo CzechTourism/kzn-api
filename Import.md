@@ -464,7 +464,7 @@ Následují ukázky JSON objektů popisují příklady detailu akce a aktivity:
 | --- | --- |
 | **@context** | Popis formátu dat – šablona jsonld (JSON schema: https://www.kudyznudy.cz/kzn/context/v1/udalost.jsonld) |
 | **typ** | Událost **(povinné)** |
-| **doba_trvání** | Začátek a konec akce **(povinné)** |
+| **doba_trvání** | Začátek a konec akce **(povinné) - akce může mít více dob trvání (pole)** |
 | **typ_události** | Pole typů události (první je hlavní) **(povinné)** |
 | id | Unikátní GUID záznamu (volitelné) |
 | **iri** | Unikání adresa záznamu **(povinné)** |
