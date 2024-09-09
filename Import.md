@@ -2,13 +2,13 @@
 
 Tento dokument popisuje, jak jednoduše sdílet (importovat) vaše články na portál Kudy z nudy.
 
-Portál Kudy z nudy podporuje import pro tyto typy obsahu: akce a aktivity. Hlavním rozdílem typů je doba trvání. Akce mají omezenou dobu trvání (v určitý okamžik začínají a v určitý končí). Aktivity jsou časově neomezené – jedná se o tzv. Turistické cíle. Z pohledu dat jsou si typy velmi podobné. Rozdílem je pouze existence doby trvání u akcí a jiná kategorizace u typu akce a jiná u typu aktivity. Je tedy potřeba rozdělit si obsah na akce a aktivity. Někteří poskytovatelé poskytují pouze akce, někteří pouze aktivity, někteří obojí současně. 
+Portál Kudy z nudy podporuje import pro tyto typy obsahu: **akce** a **aktivity**. Hlavním rozdílem typů je **doba trvání**. Akce (**události**) mají omezenou dobu trvání (v určitý okamžik začínají a v určitý končí). Aktivity jsou časově neomezené – jedná se o tzv. **turistické cíle**. Z pohledu dat jsou si typy velmi podobné. Rozdílem je pouze existence doby trvání u událostí a jiná kategorizace u typu událost a jiná u typu turistický cíl. 
 
-Provozovatelem portálu [Kudy z nudy](https://www.kudyznudy.cz) a poskytovatelem API je agentura [CzechTourism](https://www.czechtourism.cz/). Funkce importu je přístupná pouze pro smluvní partnery CzechTourism. Pro přístup je nutné mít účet na portálu Kudy z nudy a k tomuto účtu mít přidělena patřičná oprávnění. Tato oprávnění zajistí provozovatel portálu. Více informací naleznete na stránce: [Kudy z nudy API](https://www.kudyznudy.cz/faq-casto-kladene-otazky/api). 
+Je tedy potřeba rozdělit si obsah na události a turistické cíle. Někteří poskytovatelé poskytují pouze události, někteří pouze turistické cíle, někteří obojí současně. Provozovatel portálu Kudy z nudy bude potřebovat znát k registraci vašeho datového zdroje: URL adresu zdroje, na které se budou vaše data nacházet. Například: https://www.domena.cz/data. Je tedy potřeba implementovat (poskytnout) službu (API), která bude následně registrována na portále Kudy z nudy a pomocí níž se budou data od vás stahovat. Služba musí vracet data v podporovaném formátu. Jedná se o jednoduché pole JSON objektů (záznamů).
 
-Provozovatel portálu Kudy z nudy bude potřebovat znát k registraci vašeho datového zdroje: URL adresu zdroje, na které se budou vaše data nacházet. Například: https://www.domena.cz/data. Je tedy potřeba implementovat (poskytnout) službu (API), která bude následně registrována na portále Kudy z nudy a pomocí níž se budou data od vás stahovat. Služba musí vracet data v podporovaném formátu. Jedná se o jednoduché pole JSON objektů (záznamů). Modely objektů byly navrženy podle vzoru [Otevřených dat](https://opendata.gov.cz), respektive podle [Otevřených formálních norem](https://data.gov.cz/ofn/).
+Datový zdroj, který musíte implementovat (služba poskytující data) musí obsahovat seznam všech článků ve formátu JSON, kde každý článek musí obsahovat základní vlastnosti (hodnoty). Pokud poskytujete současně události i turistické cíle, pak je žádoucí mít data rozdělena na 2 datové zdroje, kde jeden je pro události a druhý pro turistické cíle.
 
-## Ukázka výstupu služby poskytující data pro portál Kudy z nudy
+## Ukázka výstupu služby (datového zdroje) poskytující data pro portál Kudy z nudy
 
     [
         {
@@ -52,21 +52,23 @@ Provozovatel portálu Kudy z nudy bude potřebovat znát k registraci vašeho da
 | **@context** | Popis formátu dat – šablona jsonld (JSON schema: [https://www.kudyznudy.cz/kzn/context/v1/dokument.jsonld](https://www.kudyznudy.cz/kzn/context/v1/dokument.jsonld)). Tato šablona slouží k validaci správnosti vašeho datového zdroje. |
 | **typ** | *Turistický cíl* nebo *Událost* **(povinné)** |
 | id | Unikátní GUID záznamu *(volitelné)* |
-| **iri** | Unikání adresa záznamu. Slouží jako unikátní indentifikátor záznamu. Jedná se o URL adresu detailu záznamu pro získání kompletních dat záznamu. **(povinné)** |
-| **název** | Název článku / záznamu **(povinné)** |
+| **iri** | Unikání adresa záznamu. Slouží jako unikátní indentifikátor záznamu. Jedná se o URL adresu detailu záznamu pro získání kompletních dat záznamu. Minimální déla je 5 znaků. **(povinné)** |
+| **název** | Název článku / záznamu. Minimální déla je 5 znaků. **(povinné)** |
 | **vyvořeno** | Datum a čas vytvoření **(povinné)** |
 | **aktualizováno** | Datum a čas poslední změny. Slouží jako informace o změně pro účely aktualizace. **(povinné)** |
 
 
-Kudy z nudy pravidelně poptává váš datový zdroj a získává tak informace o změnách, které zpracovává. Pro lepší nastavení je dobré znát, jak často dochází k publikaci změn datového zdroje – může se pak na straně Kudy z nudy nastavit, jak často se mají nová data poptávat. 
+Kudy z nudy pravidelně poptává váš datový zdroj a získává tak informace o změnách, které zpracovává. Pro lepší nastavení je dobré znát, jak často dochází k publikaci změn datového zdroje – může se pak na straně Kudy z nudy nastavit, jak často se mají nová data poptávat. Datový zdroj musí poskytovat data ve formátu definovaném pomocí JSON schématu: [https://www.kudyznudy.cz/kzn/context/v1/dokument.jsonld](https://www.kudyznudy.cz/kzn/context/v1/dokument.jsonld). Pro validaci můžete použít nějaký JSON schéma validator, například [JSON Schema Validator](https://www.jsonschemavalidator.net/).
 
-Doporučujeme také implementovat filtrování datumem (parametr datum). Bude pak možné poptat pouze záznamy změněné od určitého datumu a času (od data poslední aktualizace). Nebudou se tedy muset stahovat již zpracované záznamy. https://www.domena.cz/data?datum=2023-10-02 (vrátí pouze záznamy změněné nebo vytvořené od 2.10.2023).
+Doporučujeme také implementovat filtrování datumem (parametr datum). Bude pak možné poptat pouze záznamy změněné od určitého datumu a času (od data poslední aktualizace). Nebudou se tedy muset stahovat již zpracované záznamy. Například: https://www.domena.cz/data?datum=2023-10-02 - vrátí pouze záznamy změněné nebo vytvořené od 2.10.2023.
 
-Druhou službu, kterou je potřeba implementovat, je služba pro detail záznamu. Adresa této služby je předávána v hodnotě iri u každého záznamu a je zároveň unikátním identifikátorem záznamu. Služba detailu záznamu musí vracet data opět v podporovaném formátu. Pokud se jedná o detail aktivity (turistického cíle), pak musí vracet JSON objekt validní podle šablony turistického cíle: https://www.kudyznudy.cz/kzn/context/v1/turisticky-cil.jsonld, pokud se jedná o akci (událost), tak musí vracet data validní podle šablony události: https://www.kudyznudy.cz/kzn/context/v1/udalost.jsonld.
+Důležitá je hodnota **aktualizováno**, neboť slouží na straně Kudy z nudy k ověření, zda se daný článek od poslední aktualizace změnil. Pokud dojde k datové změně článku, pak je potřeba mít u aktualizováno poslední datum aktualizace (změny), aby Kudy z nudy mohlo daný článek aktualizovat i na své straně. Další důležitá hodnota je **iri**, kde musí být uvedena služba pro získání detailu článku. Ostatní povinné hodnoty slouží k identifikaci článku.
 
-Následují ukázky JSON objektů popisují příklady detailu akce a aktivity:
+Druhou službu, kterou je potřeba implementovat, je služba pro detail záznamu. Adresa této služby je předávána v první službě v hodnotě iri u každého záznamu a je zároveň **unikátním identifikátorem záznamu**. Služba detailu záznamu musí vracet data opět v podporovaném formátu. Pokud se jedná o detail turistického cíle, pak musí vracet JSON objekt validní podle šablony turistického cíle: https://www.kudyznudy.cz/kzn/context/v1/turisticky-cil.jsonld, pokud se jedná o událost, tak musí vracet data validní podle šablony události: https://www.kudyznudy.cz/kzn/context/v1/udalost.jsonld.
 
-### Ukázka výstupu detailu aktivity (turistického cíle)
+Následují ukázky JSON objektů popisují příklady detailu události a detailu turistického cíle:
+
+### Ukázka výstupu detailu turistického cíle
 
     {
         "@context": "https://www.kudyznudy.cz/kzn/context/v1/turisticky-cil.jsonld",
@@ -276,7 +278,7 @@ Následují ukázky JSON objektů popisují příklady detailu akce a aktivity:
 | otevírací_doba | Definice otevírací doby v jednotlivých dnech (volitelné) |
 | **příloha** | Pole obrázků a jejich metadata **(povinné)** |
 
-### Ukázka výstupu detailu akce (události)
+### Ukázka výstupu detailu události
 
     {
         "@context": "https://www.kudyznudy.cz/kzn/context/v1/udalost.jsonld",
@@ -491,3 +493,6 @@ Následují ukázky JSON objektů popisují příklady detailu akce a aktivity:
 | **příloha** | Pole obrázků a jejich metadata **(povinné)** |
 
 Každý JSON objekt, který vaše API poskytuje musí být validní oproti danému JSON schématu tak, aby jej bylo možné načíst na straně Kudy z nudy. Pro validaci můžete použít například [JSON Schema Validator](https://www.jsonschemavalidator.net/).
+
+Provozovatelem portálu [Kudy z nudy](https://www.kudyznudy.cz) a poskytovatelem API je agentura [CzechTourism](https://www.czechtourism.cz/). Funkce importu je přístupná pouze pro smluvní partnery CzechTourism. Pro přístup je nutné mít účet na portálu Kudy z nudy a k tomuto účtu mít přidělena patřičná oprávnění. Tato oprávnění zajistí provozovatel portálu. Více informací naleznete na stránce: [Kudy z nudy API](https://www.kudyznudy.cz/faq-casto-kladene-otazky/api). 
+
