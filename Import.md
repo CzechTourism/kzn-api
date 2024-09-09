@@ -507,6 +507,20 @@ Pořadatel je povinná struktura u obou typů dat. Definuje kontakty a adresu na
 
 **Umístění** uvedeme pouze pokud je místo konání jiné než pořadatel, umístění je pole (je tedy možné mít více míst konání). Struktura umístění je obdobná jako u struktury pořadatel s rozdílem, že Kontaktní osoba zde není povinná.
 
+
+### Popis struktury příloha
+
+Příloha slouží k vložení fotografií k článku. Je vyžadován alespoň jeden obrázek k záznamu. Pole přílohy obsahuje položky typu **Digitální objekt**, kde každý objekt vyžaduje povinné hodnoty: url a typ_média.
+
+| **Příloha** | **Popis hodnoty** |
+| --- | --- |
+| **typ** | Digitální objekt **(povinné)** |
+| **url** | URL adresa obrázku. Minimální déla je 5 znaků. **(povinné)** |
+| **typ_média** | JPEG obrázek (https://www.iana.org/assignments/media-types/image/jpeg) nebo WEBP (https://www.iana.org/assignments/media-types/image/webp). **(povinné)** |
+| **autor_díla** | Možnost uvedení autora. (volitelné) |
+| **název** | Název obrázku. (volitelné) |
+| **popis** | Popis obrázku. (volitelné) |
+
 --------------------------
 
 Každý JSON objekt, který vaše API poskytuje musí být validní oproti danému JSON schématu tak, aby jej bylo možné načíst na straně Kudy z nudy. Pro validaci můžete použít například [JSON Schema Validator](https://www.jsonschemavalidator.net/).
