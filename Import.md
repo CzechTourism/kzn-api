@@ -492,6 +492,22 @@ Následují ukázky JSON objektů popisují příklady detailu události a detai
 | otevírací_doba | Definice otevírací doby v jednotlivých dnech. (volitelné) |
 | **příloha** | Pole obrázků a jejich metadata. Vyžadována alespoň 1 příloha (obrázek). **(povinné)** |
 
+
+### Popis struktur pořadatel a umístění
+
+Pořadatel je povinná struktura u obou typů dat. Definuje kontakty a adresu na místo pořádání. Pokud samotné místo konání je jiné než pořadatel, pak se uvede místo konání do struktury pole umístění a v poli pořadatel budou údaje samotného pořadatele. Pokud je místo konání stejné jako pořadatel, pak pole umístění zůstane prázné a bude uveden pouze pořadatel. Vzhledem k tomu že vlastnost umístění je pole, tak samozřejmě může mít článek uvedeno více míst umístění (například koncert co se koná na více místech).
+
+| **Pořadatel** | **Popis hodnoty** |
+| --- | --- |
+| **typ** | Osoba **(povinné)** |
+| **název** | Název pořadatele (místa konání). Minimální déla je 5 znaků. **(povinné)** |
+| **geometrie** | Povinná struktura typu **Lokalita** obsahující povinné pole **souřadnice** o 2 hodnotách (zeměpisná šířka a délka). Dále struktura obsahuje i nepovinné hodnoty: kraj, oblast a město sloužící k upřesnění místa. **(povinné)** |
+| **adresa** | Povinná struktura typu **Kontaktní adresa** obsahující povinná pole: ulice (minimální délka je 5 znaků), obec (minimální délka je 2 znaků) a psč (minimální délka je 5 znaků). Dále obsahuje nepovinnou strukturu **Kontakt**, kde je možné uvést informace jako email, mobil, facebook, twitter, url. **(povinné)** |
+| **kontaktní_osoba** | Povinná struktura typu **Kontaktní osoba** obsahující povinná pole jméno (minimální délka je 5 znaků) a email (platný email o délce alespoň 5 znaků) a nepovinné mobil. **(povinné)** |
+
+**Umístění** uvedeme pouze pokud je místo konání jiné než pořadatel, umístění je pole (je tedy možné mít více míst konání). Struktura umístění je obdobná jako u struktury pořadatel s rozdílem, že Kontaktní osoba zde není povinná.
+
+
 Každý JSON objekt, který vaše API poskytuje musí být validní oproti danému JSON schématu tak, aby jej bylo možné načíst na straně Kudy z nudy. Pro validaci můžete použít například [JSON Schema Validator](https://www.jsonschemavalidator.net/).
 
 Provozovatelem portálu [Kudy z nudy](https://www.kudyznudy.cz) a poskytovatelem API je agentura [CzechTourism](https://www.czechtourism.cz/). Funkce importu je přístupná pouze pro smluvní partnery CzechTourism. Pro přístup je nutné mít účet na portálu Kudy z nudy a k tomuto účtu mít přidělena patřičná oprávnění. Tato oprávnění zajistí provozovatel portálu. Více informací naleznete na stránce: [Kudy z nudy API](https://www.kudyznudy.cz/faq-casto-kladene-otazky/api). 
