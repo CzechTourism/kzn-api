@@ -2,7 +2,7 @@
 
 Tento dokument popisuje, jak jednoduše sdílet (importovat) vaše články na portál Kudy z nudy.
 
-Portál Kudy z nudy podporuje import pro tyto typy obsahu: **akce** a **aktivity**. Hlavním rozdílem typů je **doba trvání**. Akce (**události**) mají omezenou dobu trvání (v určitý okamžik začínají a v určitý končí). Aktivity jsou časově neomezené – jedná se o tzv. **turistické cíle**. Z pohledu dat jsou si typy velmi podobné. Rozdílem je pouze existence doby trvání u událostí a jiná kategorizace u typu událost a jiná u typu turistický cíl. 
+Portál Kudy z nudy podporuje import pro tyto typy obsahu: **akce** a **aktivity**. Hlavním rozdílem typů je **doba trvání**. Akce (v datovém zdroji pojmenované jako **události**) mají omezenou dobu trvání - v určitý okamžik začínají a v určitý končí. Aktivity jsou časově neomezené – jedná se o tzv. **turistické cíle**. Z pohledu dat jsou si typy velmi podobné. Rozdílem je pouze existence doby trvání u událostí a jiná kategorizace u typu událost a jiná u typu turistický cíl. 
 
 Je tedy potřeba rozdělit si obsah na události a turistické cíle. Někteří poskytovatelé poskytují pouze události, někteří pouze turistické cíle, někteří obojí současně. Provozovatel portálu Kudy z nudy bude potřebovat znát k registraci vašeho datového zdroje: URL adresu zdroje, na které se budou vaše data nacházet. Například: https://www.domena.cz/data. Je tedy potřeba implementovat (poskytnout) službu (API), která bude následně registrována na portále Kudy z nudy a pomocí níž se budou data od vás stahovat. Služba musí vracet data v podporovaném formátu. Jedná se o jednoduché pole JSON objektů (záznamů).
 
@@ -54,7 +54,7 @@ Datový zdroj, který musíte implementovat (služba poskytující data) musí o
 | id | Unikátní GUID záznamu *(volitelné)* |
 | **iri** | Unikání adresa záznamu. Slouží jako unikátní indentifikátor záznamu. Jedná se o URL adresu detailu záznamu pro získání kompletních dat záznamu. Minimální déla je 5 znaků. **(povinné)** |
 | **název** | Název článku / záznamu. Minimální déla je 5 znaků. **(povinné)** |
-| **vyvořeno** | Datum a čas vytvoření **(povinné)** |
+| **vyvořeno** | Datum a čas vytvoření záznamu. **(povinné)** |
 | **aktualizováno** | Datum a čas poslední změny. Slouží jako informace o změně pro účely aktualizace. **(povinné)** |
 
 
@@ -253,30 +253,30 @@ Následují ukázky JSON objektů popisují příklady detailu události a detai
 | --- | --- |
 | **@context** |Popis formátu dat – šablona jsonld (JSON schema: https://www.kudyznudy.cz/kzn/context/v1/turisticky-cil.jsonld) |
 | **typ** | Turistický cíl **(povinné)** |
-| **typ_turistického_cíle** | Pole typů turistického cíle  (první je hlavní) **(povinné)** |
-| **kategorie_turistického_cíle** | Pole kategorií turistického cíle  (první je hlavní) **(povinné)** |
-| id | Unikátní GUID záznamu (volitelné) |
-| **iri** | Unikání adresa záznamu **(povinné)** |
-| **název** | Název článku **(povinné)** |
-| **vyvořeno** | Datum a čas vytvoření **(povinné)** |
-| **aktualizováno** | Datum a čas poslední změny **(povinné)** |
-| **popis** | Krátká anotace (perex) – prostý text **(povinné)** |
-| dlouhý_popis | HTML text pokračující za krátkým popisem (volitelné) |
-| aktivní_česko | Aktivní Česko (true / false) (volitelné) |
-| bezbariériový_přístup | Bezbariérový přístup (true / false) (volitelné) |
-| ekologicky_šetrné | Ekologicky šetrné (true / false) (volitelné) |
-| vhodné_pro_děti | Vhodné pro děti (true / false) (volitelné) |
-| vhodné_pro_dospělé | Vhodné pro dospělé (true / false) (volitelné) |
-| vhodné_pro_firmení_akce | Vhodné pro firemní akce (true / false) (volitelné) |
-| vhodné_pro_zvířata | Vhodné pro zvířata (true / false) (volitelné) |
-| za_každého_počasí | Za každého počasí (true / false) (volitelné) |
-| časová_náročnost | Počet hodin potřebných k návštěvě místa (volitelné) |
-| registrace | URL adresa registrace na externím webu (volitelné) |
-| **pořadatel** | Adresa, a kontakt na pořadatele **(povinné)** |
-| umístění | Místa konání (adresy a kontakty) (volitelné) |
-| kategorie_vstupného | Ceny jednotlivých typů vstupného (volitelné) |
-| otevírací_doba | Definice otevírací doby v jednotlivých dnech (volitelné) |
-| **příloha** | Pole obrázků a jejich metadata **(povinné)** |
+| **typ_turistického_cíle** | Pole typů turistického cíle (první uvedený je hlavní). Vyžadován alespoň 1 typ. **(povinné)** |
+| **kategorie_turistického_cíle** | Pole kategorií turistického cíle (první uvedená je hlavní). Vyžadována alespoň 1 kategorie. **(povinné)** |
+| id | Unikátní GUID záznamu. (volitelné) |
+| **iri** | Unikání adresa záznamu. Minimální déla je 5 znaků. **(povinné)** |
+| **název** | Název článku. Minimální déla je 5 znaků. **(povinné)** |
+| **vyvořeno** | Datum a čas vytvoření záznamu. **(povinné)** |
+| **aktualizováno** | Datum a čas poslední změny - editace záznamu. **(povinné)** |
+| **popis** | Krátká anotace (perex) – prostý text. Minimální déla je 50 znaků. **(povinné)** |
+| dlouhý_popis | HTML text pokračující za krátkým popisem. Nevkládat stejný obsah jako u pole popis. (volitelné) |
+| aktivní_česko | Aktivní Česko (true / false). (volitelné) |
+| bezbariériový_přístup | Bezbariérový přístup (true / false). (volitelné) |
+| ekologicky_šetrné | Ekologicky šetrné (true / false). (volitelné) |
+| vhodné_pro_děti | Vhodné pro děti (true / false). (volitelné) |
+| vhodné_pro_dospělé | Vhodné pro dospělé (true / false). (volitelné) |
+| vhodné_pro_firmení_akce | Vhodné pro firemní akce (true / false). (volitelné) |
+| vhodné_pro_zvířata | Vhodné pro zvířata (true / false). (volitelné) |
+| za_každého_počasí | Za každého počasí (true / false). (volitelné) |
+| časová_náročnost | Počet hodin potřebných k návštěvě místa. Číslo v rozmezí: 0.0 - 10.0. (volitelné) |
+| registrace | URL adresa registrace na externím webu. (volitelné) |
+| **pořadatel** | Adresa, a kontakt na pořadatele. **(povinné)** |
+| umístění | Místa konání (adresy a kontakty). Pokud adresa umístění je stejná jako pořadatel, pak takové umístění není třeba uvádět. (volitelné) |
+| kategorie_vstupného | Ceny jednotlivých typů vstupného. (volitelné) |
+| otevírací_doba | Definice otevírací doby v jednotlivých dnech. (volitelné) |
+| **příloha** | Pole obrázků a jejich metadata. Vyžadována alespoň 1 příloha (obrázek). **(povinné)** |
 
 ### Ukázka výstupu detailu události
 
@@ -466,31 +466,31 @@ Následují ukázky JSON objektů popisují příklady detailu události a detai
 | --- | --- |
 | **@context** | Popis formátu dat – šablona jsonld (JSON schema: https://www.kudyznudy.cz/kzn/context/v1/udalost.jsonld) |
 | **typ** | Událost **(povinné)** |
-| **doba_trvání** | Začátek a konec akce **(povinné) - akce může mít více dob trvání (pole)** |
-| **typ_události** | Pole typů události (první je hlavní) **(povinné)** |
-| id | Unikátní GUID záznamu (volitelné) |
-| **iri** | Unikání adresa záznamu **(povinné)** |
-| **název** | Název článku **(povinné)** |
-| **vyvořeno** | Datum a čas vytvoření **(povinné)** |
-| **aktualizováno** | Datum a čas poslední změny **(povinné)** |
-| **popis** | Krátká anotace (perex) – prostý text **(povinné)** |
-| dlouhý_popis | HTML text pokračující za krátkým popisem (volitelné) |
-| aktivní_česko | Aktivní Česko (true / false) (volitelné) |
-| bezbariériový_přístup | Bezbariérový přístup (true / false) (volitelné) |
-| ekologicky_šetrné | Ekologicky šetrné (true / false) (volitelné) |
-| smetana_200 | Projekt Smetana200 (true / false) (volitelné) |
-| vhodné_pro_děti | Vhodné pro děti (true / false) (volitelné) |
-| vhodné_pro_dospělé | Vhodné pro dospělé (true / false) (volitelné) |
-| vhodné_pro_firmení_akce | Vhodné pro firemní akce (true / false) (volitelné) |
-| vhodné_pro_zvířata | Vhodné pro zvířata (true / false) (volitelné) |
-| za_každého_počasí | Za každého počasí (true / false) (volitelné) |
-| časová_náročnost | Počet hodin potřebných k návštěvě místa (volitelné) |
-| registrace | URL adresa registrace na externím webu (volitelné) |
-| **pořadatel** | Adresa, a kontakt na pořadatele **(povinné)** |
-| umístění | Místa konání (adresy a kontakty) (volitelné) |
-| kategorie_vstupného | Ceny jednotlivých typů vstupného (volitelné) |
-| otevírací_doba | Definice otevírací doby v jednotlivých dnech (volitelné) |
-| **příloha** | Pole obrázků a jejich metadata **(povinné)** |
+| **doba_trvání** | Začátek a konec akce. **(povinné) - akce může mít více dob trvání (pole)** |
+| **typ_události** | Pole typů události (první uvedený je hlavní). Vyžadován alespoň 1 typ. **(povinné)** |
+| id | Unikátní GUID záznamu. (volitelné) |
+| **iri** | Unikání adresa záznamu. Minimální déla je 5 znaků. **(povinné)** |
+| **název** | Název článku. Minimální déla je 5 znaků. **(povinné)** |
+| **vyvořeno** | Datum a čas vytvoření záznamu. **(povinné)** |
+| **aktualizováno** | Datum a čas poslední změny - editace záznamu. **(povinné)** |
+| **popis** | Krátká anotace (perex) – prostý text. Minimální déla je 50 znaků. **(povinné)** |
+| dlouhý_popis | HTML text pokračující za krátkým popisem. Nevkládat stejný obsah jako u pole popis. (volitelné) |
+| aktivní_česko | Aktivní Česko (true / false). (volitelné) |
+| bezbariériový_přístup | Bezbariérový přístup (true / false). (volitelné) |
+| ekologicky_šetrné | Ekologicky šetrné (true / false). (volitelné) |
+| smetana_200 | Projekt Smetana200 (true / false). (volitelné) |
+| vhodné_pro_děti | Vhodné pro děti (true / false). (volitelné) |
+| vhodné_pro_dospělé | Vhodné pro dospělé (true / false). (volitelné) |
+| vhodné_pro_firmení_akce | Vhodné pro firemní akce (true / false). (volitelné) |
+| vhodné_pro_zvířata | Vhodné pro zvířata (true / false). (volitelné) |
+| za_každého_počasí | Za každého počasí (true / false). (volitelné) |
+| časová_náročnost | Počet hodin potřebných k návštěvě místa. Číslo v rozmezí: 0.0 - 10.0. (volitelné) |
+| registrace | URL adresa registrace na externím webu. (volitelné) |
+| **pořadatel** | Adresa, a kontakt na pořadatele. **(povinné)** |
+| umístění | Místa konání (adresy a kontakty). Pokud adresa umístění je stejná jako pořadatel, pak takové umístění není třeba uvádět. (volitelné) |
+| kategorie_vstupného | Ceny jednotlivých typů vstupného. (volitelné) |
+| otevírací_doba | Definice otevírací doby v jednotlivých dnech. (volitelné) |
+| **příloha** | Pole obrázků a jejich metadata. Vyžadována alespoň 1 příloha (obrázek). **(povinné)** |
 
 Každý JSON objekt, který vaše API poskytuje musí být validní oproti danému JSON schématu tak, aby jej bylo možné načíst na straně Kudy z nudy. Pro validaci můžete použít například [JSON Schema Validator](https://www.jsonschemavalidator.net/).
 
