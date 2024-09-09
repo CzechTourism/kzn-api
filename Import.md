@@ -507,6 +507,7 @@ Pořadatel je povinná struktura u obou typů dat. Definuje kontakty a adresu na
 
 **Umístění** uvedeme pouze pokud je místo konání jiné než pořadatel, umístění je pole (je tedy možné mít více míst konání). Struktura umístění je obdobná jako u struktury pořadatel s rozdílem, že Kontaktní osoba zde není povinná.
 
+--------------------------
 
 Každý JSON objekt, který vaše API poskytuje musí být validní oproti danému JSON schématu tak, aby jej bylo možné načíst na straně Kudy z nudy. Pro validaci můžete použít například [JSON Schema Validator](https://www.jsonschemavalidator.net/).
 
