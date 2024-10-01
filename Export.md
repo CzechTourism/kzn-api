@@ -60,10 +60,10 @@ Metoda se dále hodí k filtrování dat, neboť obsahuje další volitelné par
 *Pokud filtrujeme obce (města), tak se ignorují případně zadané oblasti a regiony. U oblasti se pak ignorují případně zadané regiony.*
 
 Číselníky regionů, oblastí, měst a typů lze najít ve swaggeru pod sekcí General:
- - /general/regions
- - /general/areas
- - /general/cities
- - /general/activitytypes
+ - [/general/regions](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetRegions)
+ - [/general/areas](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetAreas)
+ - [/general/cities](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetCities)
+ - [/general/activitytypes](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetActivityTypes)
 
 Odpověď je pole JSON objektů. Například:
 
@@ -250,10 +250,10 @@ Metoda se dále hodí k filtrování dat, neboť obsahuje další volitelné par
 *Pokud filtrujeme obce (města), tak se ignorují případně zadané oblasti a regiony. U oblasti se pak ignorují případně zadané regiony.*
 
 Číselníky regionů, oblastí, měst a typů lze najít ve swaggeru pod sekcí General:
- - /general/regions
- - /general/areas
- - /general/cities
- - /general/eventtypes
+ - [/general/regions](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetRegions)
+ - [/general/areas](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetAreas)
+ - [/general/cities](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetCities)
+ - [/general/eventtypes](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetEventTypes)
 
 Výstup služeb seznamu akcí – pole JSON objektů:
 
