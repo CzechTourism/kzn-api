@@ -51,6 +51,20 @@ Pro získání aktivit změněných po určitém čase je volání služby násl
 
 *Metoda se hodí například pro efektivnější synchronizaci dat.*
 
+Metoda se dále hodí k filtrování dat, neboť obsahuje další volitelné parametry (filtry):
+- regions: pole ID (guid) regionů (krajů) pro filtrování článků z jednoho nebo více krajů
+- areas: pole ID (guid) oblastí pro filtrování článků z jedné nebo více turistických oblastí
+- cities: pole ID (guid) obcí (měst) pro filtrování článků z jedné nebo více obcí
+- types: pole URI adres typů aktivit pro filtrování jednoho nebo více typů
+
+*Pokud filtrujeme obce (města), tak se ignorují případně zadané oblasti a regiony. U oblasti se pak ignorují případně zadané regiony.*
+
+Číselníky regionů, oblastí, měst a typů lze najít ve swaggeru pod sekcí General:
+ - /general/regions
+ - /general/areas
+ - /general/cities
+ - /general/activitytypes
+
 Odpověď je pole JSON objektů. Například:
 
     [
@@ -226,6 +240,20 @@ Získání akcí změněných po určitém čase pak pomocí volání:
     --data-raw '{
         "date": "2022-10-10T09:23:40.085Z"
     }'
+
+Metoda se dále hodí k filtrování dat, neboť obsahuje další volitelné parametry (filtry):
+- regions: pole ID (guid) regionů (krajů) pro filtrování článků z jednoho nebo více krajů
+- areas: pole ID (guid) oblastí pro filtrování článků z jedné nebo více turistických oblastí
+- cities: pole ID (guid) obcí (měst) pro filtrování článků z jedné nebo více obcí
+- types: pole URI adres typů akcí pro filtrování jednoho nebo více typů
+
+*Pokud filtrujeme obce (města), tak se ignorují případně zadané oblasti a regiony. U oblasti se pak ignorují případně zadané regiony.*
+
+Číselníky regionů, oblastí, měst a typů lze najít ve swaggeru pod sekcí General:
+ - /general/regions
+ - /general/areas
+ - /general/cities
+ - /general/eventtypes
 
 Výstup služeb seznamu akcí – pole JSON objektů:
 
