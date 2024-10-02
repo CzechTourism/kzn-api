@@ -55,14 +55,16 @@ Metoda se dále hodí k filtrování dat, neboť obsahuje další volitelné par
 - regions: pole ID (guid) regionů (krajů) pro filtrování článků z jednoho nebo více krajů
 - areas: pole ID (guid) oblastí pro filtrování článků z jedné nebo více turistických oblastí
 - cities: pole ID (guid) obcí (měst) pro filtrování článků z jedné nebo více obcí
+- certifications: pole ID (guid) certifikací pro filtrování článků s jednou nebo více certifikací
 - types: pole URI adres typů aktivit pro filtrování jednoho nebo více typů
 
 *Pokud filtrujeme obce (města), tak se ignorují případně zadané oblasti a regiony. U oblasti se pak ignorují případně zadané regiony.*
 
-Číselníky regionů, oblastí, měst a typů lze najít ve swaggeru pod sekcí General:
+Číselníky regionů, oblastí, měst, certifikací a typů lze najít ve swaggeru pod sekcí General:
  - [/general/regions](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetRegions)
  - [/general/areas](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetAreas)
  - [/general/cities](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetCities)
+ - [/general/certifications](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetCertifications)
  - [/general/activitytypes](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetActivityTypes)
 
 Odpověď je pole JSON objektů. Například:
@@ -245,14 +247,16 @@ Metoda se dále hodí k filtrování dat, neboť obsahuje další volitelné par
 - regions: pole ID (guid) regionů (krajů) pro filtrování článků z jednoho nebo více krajů
 - areas: pole ID (guid) oblastí pro filtrování článků z jedné nebo více turistických oblastí
 - cities: pole ID (guid) obcí (měst) pro filtrování článků z jedné nebo více obcí
+- certifications: pole ID (guid) certifikací pro filtrování článků s jednou nebo více certifikací
 - types: pole URI adres typů akcí pro filtrování jednoho nebo více typů
 
 *Pokud filtrujeme obce (města), tak se ignorují případně zadané oblasti a regiony. U oblasti se pak ignorují případně zadané regiony.*
 
-Číselníky regionů, oblastí, měst a typů lze najít ve swaggeru pod sekcí General:
+Číselníky regionů, oblastí, měst, certifikací a typů lze najít ve swaggeru pod sekcí General:
  - [/general/regions](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetRegions)
  - [/general/areas](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetAreas)
  - [/general/cities](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetCities)
+ - [/general/certifications](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetCertifications)
  - [/general/eventtypes](https://api.kudyznudy.cz//swagger/ui/index#!/General/General_GetEventTypes)
 
 Výstup služeb seznamu akcí – pole JSON objektů:
