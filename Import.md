@@ -252,9 +252,9 @@ Následují ukázky JSON objektů popisují příklady detailu události a detai
 | **Hodnota** | **Popis hodnoty** |
 | --- | --- |
 | **@context** |Popis formátu dat – šablona jsonld (JSON schema: https://www.kudyznudy.cz/kzn/context/v1/turisticky-cil.jsonld) |
-| **typ** | Turistický cíl **(povinné)** |
-| **typ_turistického_cíle** | Pole typů turistického cíle (první uvedený je hlavní). Vyžadován alespoň 1 typ. **(povinné)** |
-| **kategorie_turistického_cíle** | Pole kategorií turistického cíle (první uvedená je hlavní). Vyžadována alespoň 1 kategorie. **(povinné)** |
+| **typ** | Turistický cíl. **(povinné)** |
+| **typ_turistického_cíle** | Pole typů turistického cíle (první uvedený je hlavní). Vyžadován alespoň 1 typ. Validní typy jsou URL adresy hlavních kategorií sekce [Co chcete dělat](https://www.kudyznudy.cz/co-chcete-delat) **(povinné)** |
+| **kategorie_turistického_cíle** | Pole kategorií turistického cíle (první uvedená je hlavní). Vyžadována alespoň 1 kategorie. Validní kategorie jsou URL adresy podkategorií sekce [Co chcete dělat](https://www.kudyznudy.cz/co-chcete-delat) **(povinné)** |
 | id | Unikátní GUID záznamu. (volitelné) |
 | **iri** | Unikání adresa záznamu. Minimální déla je 5 znaků. **(povinné)** |
 | **název** | Název článku. Minimální déla je 5 znaků. **(povinné)** |
