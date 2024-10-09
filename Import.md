@@ -500,10 +500,10 @@ Pořadatel je povinná struktura u obou typů dat. Definuje kontakty a adresu na
 | **Pořadatel** | **Popis hodnoty** |
 | --- | --- |
 | **typ** | Osoba **(povinné)** |
-| **název** | Název pořadatele (místa konání). Minimální délka je 5 znaků. **(povinné)** |
+| **název** | Název pořadatele (místa konání). Minimální délka je 5 znaků. Maximální délka je 500 znaků. **(povinné)** |
 | **geometrie** | Povinná struktura typu **Lokalita** obsahující povinné pole **souřadnice** o 2 hodnotách (zeměpisná šířka a délka). Dále struktura obsahuje i nepovinné hodnoty: kraj, oblast a město sloužící k upřesnění místa. **(povinné)** |
-| **adresa** | Povinná struktura typu **Kontaktní adresa** obsahující povinná pole: ulice (minimální délka je 5 znaků), obec (minimální délka je 2 znaků) a psč (minimální délka je 5 znaků). Dále obsahuje nepovinnou strukturu **Kontakt**, kde je možné uvést informace jako email, mobil, facebook, twitter, url. **(povinné)** |
-| **kontaktní_osoba** | Povinná struktura typu **Kontaktní osoba** obsahující povinná pole jméno (minimální délka je 5 znaků) a email (platný email o délce alespoň 5 znaků) a nepovinné mobil. **(povinné)** |
+| **adresa** | Povinná struktura typu **Kontaktní adresa** obsahující povinná pole: ulice (minimální délka je 5 znaků, maximální 500), obec (minimální délka je 2 znaků, maximální 500) a psč (minimální délka je 5 znaků, maximální 50). Dále obsahuje nepovinnou strukturu **Kontakt**, kde je možné uvést informace (s maximální délkou 500 znaků) jako email, mobil, facebook, twitter, url. **(povinné)** |
+| **kontaktní_osoba** | Povinná struktura typu **Kontaktní osoba** obsahující povinná pole jméno (minimální délka je 5 znaků, maximální 500) a email (platný email o délce alespoň 5 znaků, maximální 500) a nepovinné mobil. **(povinné)** |
 
 **Umístění** uvedeme pouze pokud je místo konání jiné než pořadatel, umístění je pole (je tedy možné mít více míst konání). Struktura umístění je obdobná jako u struktury pořadatel s rozdílem, že Kontaktní osoba zde není povinná.
 
