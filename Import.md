@@ -515,11 +515,11 @@ Příloha slouží k vložení fotografií k článku. Je vyžadován alespoň j
 | **Příloha** | **Popis hodnoty** |
 | --- | --- |
 | **typ** | Digitální objekt **(povinné)** |
-| **url** | URL adresa obrázku. Minimální délka je 5 znaků. **(povinné)** |
+| **url** | URL adresa obrázku. Minimální délka je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
 | **typ_média** | JPEG obrázek (https://www.iana.org/assignments/media-types/image/jpeg) nebo WEBP (https://www.iana.org/assignments/media-types/image/webp). **(povinné)** |
-| **autor_díla** | Možnost uvedení autora. (volitelné) |
-| **název** | Název obrázku. (volitelné) |
-| **popis** | Popis obrázku. (volitelné) |
+| **autor_díla** | Možnost uvedení autora. Maximální délka je 200 znaků. (volitelné) |
+| **název** | Název obrázku. Maximální délka je 200 znaků. (volitelné) |
+| **popis** | Popis obrázku. Maximální délka je 300 znaků. (volitelné) |
 
 --------------------------
 
