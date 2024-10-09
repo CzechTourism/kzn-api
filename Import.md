@@ -52,8 +52,8 @@ Datový zdroj, který musíte implementovat (služba poskytující data) musí o
 | **@context** | Popis formátu dat – šablona jsonld (JSON schema: [https://www.kudyznudy.cz/kzn/context/v1/dokument.jsonld](https://www.kudyznudy.cz/kzn/context/v1/dokument.jsonld)). Tato šablona slouží k validaci správnosti vašeho datového zdroje. |
 | **typ** | *Turistický cíl* nebo *Událost* **(povinné)** |
 | id | Unikátní GUID záznamu *(volitelné)* |
-| **iri** | Unikání adresa záznamu. Slouží jako unikátní indentifikátor záznamu. Jedná se o URL adresu detailu záznamu pro získání kompletních dat záznamu. Minimální déla je 5 znaků. **(povinné)** |
-| **název** | Název článku / záznamu. Minimální déla je 5 znaků. **(povinné)** |
+| **iri** | Unikání adresa záznamu. Slouží jako unikátní indentifikátor záznamu. Jedná se o URL adresu detailu záznamu pro získání kompletních dat záznamu. Minimální délka je 5 znaků. **(povinné)** |
+| **název** | Název článku / záznamu. Minimální délka je 5 znaků. **(povinné)** |
 | **vyvořeno** | Datum a čas vytvoření záznamu. **(povinné)** |
 | **aktualizováno** | Datum a čas poslední změny. Slouží jako informace o změně pro účely aktualizace. **(povinné)** |
 
@@ -256,11 +256,11 @@ Následují ukázky JSON objektů popisují příklady detailu události a detai
 | **typ_turistického_cíle** | Pole typů turistického cíle (první uvedený je hlavní). Vyžadován alespoň 1 typ. Validní typy jsou URL adresy hlavních kategorií sekce [Co chcete dělat](https://www.kudyznudy.cz/co-chcete-delat) **(povinné)** |
 | **kategorie_turistického_cíle** | Pole kategorií turistického cíle (první uvedená je hlavní). Vyžadována alespoň 1 kategorie. Validní kategorie jsou URL adresy podkategorií sekce [Co chcete dělat](https://www.kudyznudy.cz/co-chcete-delat) **(povinné)** |
 | id | Unikátní GUID záznamu. (volitelné) |
-| **iri** | Unikání adresa záznamu. Minimální déla je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
-| **název** | Název článku. Minimální déla je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
+| **iri** | Unikání adresa záznamu. Minimální délka je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
+| **název** | Název článku. Minimální délka je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
 | **vyvořeno** | Datum a čas vytvoření záznamu. **(povinné)** |
 | **aktualizováno** | Datum a čas poslední změny - editace záznamu. **(povinné)** |
-| **popis** | Krátká anotace (perex) – prostý text. Minimální déla je 50 znaků. Maximální délka je 200 znaků. **(povinné)** |
+| **popis** | Krátká anotace (perex) – prostý text. Minimální délka je 50 znaků. Maximální délka je 200 znaků. **(povinné)** |
 | dlouhý_popis | HTML text pokračující za krátkým popisem. Nevkládat stejný obsah jako u pole popis. (volitelné) |
 | aktivní_česko | Aktivní Česko (true / false). (volitelné) |
 | bezbariériový_přístup | Bezbariérový přístup (true / false). (volitelné) |
@@ -271,7 +271,7 @@ Následují ukázky JSON objektů popisují příklady detailu události a detai
 | vhodné_pro_zvířata | Vhodné pro zvířata (true / false). (volitelné) |
 | za_každého_počasí | Za každého počasí (true / false). (volitelné) |
 | časová_náročnost | Počet hodin potřebných k návštěvě místa. Číslo v rozmezí: 0.0 - 10.0. (volitelné) |
-| registrace | URL adresa registrace na externím webu. (volitelné) |
+| registrace | URL adresa registrace na externím webu. Minimální délka je 5 znaků. Maximální délka je 300 znaků. (volitelné) |
 | **pořadatel** | Adresa, a kontakt na pořadatele. **(povinné)** |
 | umístění | Místa konání (adresy a kontakty). Pokud adresa umístění je stejná jako pořadatel, pak takové umístění není třeba uvádět. (volitelné) |
 | kategorie_vstupného | Ceny jednotlivých typů vstupného. (volitelné) |
@@ -469,11 +469,11 @@ Následují ukázky JSON objektů popisují příklady detailu události a detai
 | **doba_trvání** | Začátek a konec akce. **(povinné) - akce může mít více dob trvání (pole)** |
 | **typ_události** | Pole typů události (první uvedený je hlavní). Vyžadován alespoň 1 typ. Validní typy jsou URL adresy hlavních kategorií [Kalendáře akcí](https://www.kudyznudy.cz/kalendar-akci) **(povinné)** |
 | id | Unikátní GUID záznamu. (volitelné) |
-| **iri** | Unikání adresa záznamu. Minimální déla je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
-| **název** | Název článku. Minimální déla je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
+| **iri** | Unikání adresa záznamu. Minimální délka je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
+| **název** | Název článku. Minimální délka je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
 | **vyvořeno** | Datum a čas vytvoření záznamu. **(povinné)** |
 | **aktualizováno** | Datum a čas poslední změny - editace záznamu. **(povinné)** |
-| **popis** | Krátká anotace (perex) – prostý text. Minimální déla je 50 znaků. Maximální délka je 300 znaků. **(povinné)** |
+| **popis** | Krátká anotace (perex) – prostý text. Minimální délka je 50 znaků. Maximální délka je 300 znaků. **(povinné)** |
 | dlouhý_popis | HTML text pokračující za krátkým popisem. Nevkládat stejný obsah jako u pole popis. (volitelné) |
 | aktivní_česko | Aktivní Česko (true / false). (volitelné) |
 | bezbariériový_přístup | Bezbariérový přístup (true / false). (volitelné) |
@@ -485,7 +485,7 @@ Následují ukázky JSON objektů popisují příklady detailu události a detai
 | vhodné_pro_zvířata | Vhodné pro zvířata (true / false). (volitelné) |
 | za_každého_počasí | Za každého počasí (true / false). (volitelné) |
 | časová_náročnost | Počet hodin potřebných k návštěvě místa. Číslo v rozmezí: 0.0 - 10.0. (volitelné) |
-| registrace | URL adresa registrace na externím webu. (volitelné) |
+| registrace | URL adresa registrace na externím webu. Minimální délka je 5 znaků. Maximální délka je 300 znaků. (volitelné) |
 | **pořadatel** | Adresa, a kontakt na pořadatele. **(povinné)** |
 | umístění | Místa konání (adresy a kontakty). Pokud adresa umístění je stejná jako pořadatel, pak takové umístění není třeba uvádět. (volitelné) |
 | kategorie_vstupného | Ceny jednotlivých typů vstupného. (volitelné) |
@@ -500,7 +500,7 @@ Pořadatel je povinná struktura u obou typů dat. Definuje kontakty a adresu na
 | **Pořadatel** | **Popis hodnoty** |
 | --- | --- |
 | **typ** | Osoba **(povinné)** |
-| **název** | Název pořadatele (místa konání). Minimální déla je 5 znaků. **(povinné)** |
+| **název** | Název pořadatele (místa konání). Minimální délka je 5 znaků. **(povinné)** |
 | **geometrie** | Povinná struktura typu **Lokalita** obsahující povinné pole **souřadnice** o 2 hodnotách (zeměpisná šířka a délka). Dále struktura obsahuje i nepovinné hodnoty: kraj, oblast a město sloužící k upřesnění místa. **(povinné)** |
 | **adresa** | Povinná struktura typu **Kontaktní adresa** obsahující povinná pole: ulice (minimální délka je 5 znaků), obec (minimální délka je 2 znaků) a psč (minimální délka je 5 znaků). Dále obsahuje nepovinnou strukturu **Kontakt**, kde je možné uvést informace jako email, mobil, facebook, twitter, url. **(povinné)** |
 | **kontaktní_osoba** | Povinná struktura typu **Kontaktní osoba** obsahující povinná pole jméno (minimální délka je 5 znaků) a email (platný email o délce alespoň 5 znaků) a nepovinné mobil. **(povinné)** |
@@ -515,7 +515,7 @@ Příloha slouží k vložení fotografií k článku. Je vyžadován alespoň j
 | **Příloha** | **Popis hodnoty** |
 | --- | --- |
 | **typ** | Digitální objekt **(povinné)** |
-| **url** | URL adresa obrázku. Minimální déla je 5 znaků. **(povinné)** |
+| **url** | URL adresa obrázku. Minimální délka je 5 znaků. **(povinné)** |
 | **typ_média** | JPEG obrázek (https://www.iana.org/assignments/media-types/image/jpeg) nebo WEBP (https://www.iana.org/assignments/media-types/image/webp). **(povinné)** |
 | **autor_díla** | Možnost uvedení autora. (volitelné) |
 | **název** | Název obrázku. (volitelné) |
