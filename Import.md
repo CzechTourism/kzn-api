@@ -256,11 +256,11 @@ Následují ukázky JSON objektů popisují příklady detailu události a detai
 | **typ_turistického_cíle** | Pole typů turistického cíle (první uvedený je hlavní). Vyžadován alespoň 1 typ. Validní typy jsou URL adresy hlavních kategorií sekce [Co chcete dělat](https://www.kudyznudy.cz/co-chcete-delat) **(povinné)** |
 | **kategorie_turistického_cíle** | Pole kategorií turistického cíle (první uvedená je hlavní). Vyžadována alespoň 1 kategorie. Validní kategorie jsou URL adresy podkategorií sekce [Co chcete dělat](https://www.kudyznudy.cz/co-chcete-delat) **(povinné)** |
 | id | Unikátní GUID záznamu. (volitelné) |
-| **iri** | Unikání adresa záznamu. Minimální déla je 5 znaků. **(povinné)** |
-| **název** | Název článku. Minimální déla je 5 znaků. **(povinné)** |
+| **iri** | Unikání adresa záznamu. Minimální déla je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
+| **název** | Název článku. Minimální déla je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
 | **vyvořeno** | Datum a čas vytvoření záznamu. **(povinné)** |
 | **aktualizováno** | Datum a čas poslední změny - editace záznamu. **(povinné)** |
-| **popis** | Krátká anotace (perex) – prostý text. Minimální déla je 50 znaků. **(povinné)** |
+| **popis** | Krátká anotace (perex) – prostý text. Minimální déla je 50 znaků. Maximální délka je 200 znaků. **(povinné)** |
 | dlouhý_popis | HTML text pokračující za krátkým popisem. Nevkládat stejný obsah jako u pole popis. (volitelné) |
 | aktivní_česko | Aktivní Česko (true / false). (volitelné) |
 | bezbariériový_přístup | Bezbariérový přístup (true / false). (volitelné) |
@@ -467,13 +467,13 @@ Následují ukázky JSON objektů popisují příklady detailu události a detai
 | **@context** | Popis formátu dat – šablona jsonld (JSON schema: https://www.kudyznudy.cz/kzn/context/v1/udalost.jsonld) |
 | **typ** | Událost **(povinné)** |
 | **doba_trvání** | Začátek a konec akce. **(povinné) - akce může mít více dob trvání (pole)** |
-| **typ_události** | Pole typů události (první uvedený je hlavní). Vyžadován alespoň 1 typ. **(povinné)** |
+| **typ_události** | Pole typů události (první uvedený je hlavní). Vyžadován alespoň 1 typ. Validní typy jsou URL adresy hlavních kategorií [Kalendáře akcí](https://www.kudyznudy.cz/kalendar-akci) **(povinné)** |
 | id | Unikátní GUID záznamu. (volitelné) |
-| **iri** | Unikání adresa záznamu. Minimální déla je 5 znaků. **(povinné)** |
-| **název** | Název článku. Minimální déla je 5 znaků. **(povinné)** |
+| **iri** | Unikání adresa záznamu. Minimální déla je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
+| **název** | Název článku. Minimální déla je 5 znaků. Maximální délka je 200 znaků. **(povinné)** |
 | **vyvořeno** | Datum a čas vytvoření záznamu. **(povinné)** |
 | **aktualizováno** | Datum a čas poslední změny - editace záznamu. **(povinné)** |
-| **popis** | Krátká anotace (perex) – prostý text. Minimální déla je 50 znaků. **(povinné)** |
+| **popis** | Krátká anotace (perex) – prostý text. Minimální déla je 50 znaků. Maximální délka je 300 znaků. **(povinné)** |
 | dlouhý_popis | HTML text pokračující za krátkým popisem. Nevkládat stejný obsah jako u pole popis. (volitelné) |
 | aktivní_česko | Aktivní Česko (true / false). (volitelné) |
 | bezbariériový_přístup | Bezbariérový přístup (true / false). (volitelné) |
